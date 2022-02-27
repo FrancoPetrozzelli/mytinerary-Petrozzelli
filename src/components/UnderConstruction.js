@@ -4,7 +4,7 @@ const UnderConstruction = () => {
     return (
         <>
         <div className="containerConstruction">
-        <img src="./assets/under-construction.png" alt="under-construction" className="underconstruction"/>
+        <img src={process.env.PUBLIC_URL+"/assets/under-construction.png"} alt="under-construction" className="underconstruction"/>
         </div>
         </>
     );

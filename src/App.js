@@ -6,6 +6,7 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Error404 from './components/Error404'
 import axios from 'axios'
 import React, {useEffect, useState} from 'react'
+import CityDetails from './components/CityDetails'
 
 function App() {
 //   const [apidata, setApiData ]= useState([])
@@ -25,12 +26,12 @@ function App() {
     <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/cities' element={<Cities/>}/>
-      <Route path='*' element={<Error404/>}/>
-
+      <Route path ="/detalle/:id" element={<CityDetails/>}/>
+      {/* <Route path='*' element={<Error404/>}/> */}
     </Routes>
 
     <FooterMain/>
-    
+
     </BrowserRouter>
 
   );
