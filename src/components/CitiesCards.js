@@ -8,20 +8,41 @@ import React, {useEffect, useState} from 'react'
 const CitiesCards = () => {
 
     const [cities, setCities] = useState([])//es la impresion dinamica de mis cards
-
-    const [print, setPrint] = useState([])//impresion basado en el search
-
+    const [printCities, setPrintCities] = useState([])//impresion basado en el search
     const [search, setSearch] = useState("")//busqueda del search
 
-    const api = async () => {
+                // get my cards // 
 
+    const api = async () => {
+    
         await axios.get(`http://localhost:4000/api/allcities`).then(response => {
             //console.log(response.data.response.myCities[0].country)
             setCities(response.data.response.myCities)
-            setPrint(response.data.response.myCities)
+            setPrintCities(response.data.response.myCities)
             
         }).catch(error =>{console.log(error)})
     }
+
+                // get user search value //
+    const getSearch = (e) => {
+        setSearch(e.target.value)   
+        filterSearch(e.target.value)
+    } 
+
+             // filtro del search //
+
+    const filterSearch = (searchtext) => {
+    
+        let searchResult = printCities.filter(searchFilter => {
+
+        if(searchFilter.place.toString().toLowerCase().startsWith(searchtext.toLowerCase().trim())){
+            return searchFilter
+        }
+
+        } )
+        setCities(searchResult)
+    } 
+
 
     useEffect(() => {
 
@@ -37,9 +58,7 @@ const CitiesCards = () => {
 
 
 <div className="d-flex justify-content-center"> 
-        <input className='' placeholder='Search..' /> </div>
-        
-
+        <input className='' placeholder='Search city...'  value={search} onChange={getSearch}/> </div>
 
 
 
