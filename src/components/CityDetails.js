@@ -27,7 +27,7 @@ const CityDetails = () => {
     return ( 
         <>
         {printCities?.map(city => 
-            <h1>ESTAS EN {city.place} </h1>
+            <h1 className="d-flex justify-content-center">ESTAS EN {city.place} </h1>
         )}
         <UnderConstruction/>
         </>

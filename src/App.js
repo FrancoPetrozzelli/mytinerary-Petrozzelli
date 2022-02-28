@@ -27,7 +27,7 @@ function App() {
       <Route path='/' element={<Home/>}/>
       <Route path='/cities' element={<Cities/>}/>
       <Route path ="/detalle/:id" element={<CityDetails/>}/>
-      {/* <Route path='*' element={<Error404/>}/> */}
+      <Route path='*' element={<Error404/>}/>
     </Routes>
 
     <FooterMain/>
