@@ -525,6 +525,10 @@ width: 100%;
 
 /* // CARD CITY NOT FOUND // */
 
+.notFoundContainer{
+  height: 70vh;
+}
+
 .searchNotFound{
   display: flex;
   justify-content: center;
@@ -532,14 +536,47 @@ width: 100%;
   border-radius: 10px;
   border: 5px solid black;
   margin-top: 2rem;
-  height: 60vh;
+  height: 30vh;
+  width: 100%;
+
 }
 
 .Searchh3{
   text-align: center;
+  font-size: 3rem;
 }
 
 .Searchh4{
   text-align: center;
+  font-size: 2rem;
 }
 
+/* // DETAILS // */
+
+.HeroDetails{
+  height: 70vh;
+  max-width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.cityDetails{
+  background-color: #0dcaf0c5;
+  border-radius: 10px;
+  padding: 1rem;
+  font-size: 10vh;
+  text-transform: uppercase;
+  color: rgb(255, 255, 255);
+  text-shadow: -1px 0 black, 0 1px black, 5px 0 black, 0 -1px black;
+}
+
+.btnCityDetails{
+  font-size: 1.5rem;
+  color: rgb(255, 255, 255);
+  background-color: #006eff;
+}
