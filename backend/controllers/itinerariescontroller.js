@@ -6,13 +6,13 @@ const itinierariescontroller = {
         let error = null;
     
         try {
-            myItineraries = await allMyItineraries.find();
+            myItineraries = await allMyItineraries.find().populate("idcity");
         } catch (err) {
             error = err;
             console.log(error);
         }
         res.json({
-            response: error ? "ERROR" : { myItineraries },
+            response: error ? "ERROR" :  myItineraries ,
             success: error ? false : true,
             error: error,
         });
@@ -21,9 +21,9 @@ const itinierariescontroller = {
 
         addNewItinerary: (req, res) => {
 
-            const {country, itinerary, price, duration, username, userimage, flag, likes, hashtags, comments, description} = req.body
+            const {idcity, city, itinerary, price, duration, username, userimage, flag, likes, hashtags, comments, description} = req.body
     
-            new allMyItineraries({country, itinerary, price, duration, username, userimage, flag, likes, hashtags, comments, description}).save()
+            new allMyItineraries({idcity, city, itinerary, price, duration, username, userimage, flag, likes, hashtags, comments, description}).save()
             .then(response => res.json({success:true, response:response}))
             .catch(err => res.json({success:false, response:err})) 
     

@@ -12,7 +12,7 @@ const citiescontroller = {
         console.log(error);
     }
     res.json({
-        response: error ? "ERROR" : { myCities },
+        response: error ? "ERROR" :  myCities ,
         success: error ? false : true,
         error: error,
     });

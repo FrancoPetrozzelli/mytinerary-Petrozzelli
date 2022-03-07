@@ -1,7 +1,8 @@
 const mongoose = require('mongoose')
 
 const itinerariesSchema = new mongoose.Schema({
-country: {type:String, required:true},
+idcity:{type:mongoose.Types.ObjectId, ref:"cities"},
+city: {type:String, required:true},
 itinerary: {type:String, required:true},
 price: {type:Number, required:true},
 duration:{type:String, required:true},
