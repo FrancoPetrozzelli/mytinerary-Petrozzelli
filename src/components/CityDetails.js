@@ -24,8 +24,19 @@ const CityDetails = (props) => {
         },[]
         )
         // console.log(props.specificCity)
-    
-        console.log(props.itinerariesByCityId)
+        // console.log(props.itinerariesByCityId)
+
+        const [button, setButton] = useState(false) 
+
+        const buttonFunction = () => {
+            
+            setButton(!button)
+
+        }
+         
+        
+
+
     return ( 
         <>
         {props.specificCity._id && 
@@ -41,8 +52,33 @@ const CityDetails = (props) => {
         {props.itinerariesByCityId.length ? (
             <>
             {props.itinerariesByCityId.map(itinerary => 
-            <h1>{itinerary.itinerary}</h1>
-            
+        <div key={itinerary._id}>
+            <div className="itinerariesCardContainer d-flex justify-content-center m-5">
+                <div className="itinerariesCard bg-warning ">
+                
+                <h1>{itinerary.itinerary}</h1>
+                <p>{itinerary.price}</p>
+                <p>{itinerary.duration}</p>
+                <p>{itinerary.description}</p>
+                <p>{itinerary.hashtags}</p>
+
+                {!button && <Button onClick={buttonFunction} className=" btn btn-details btn-warning btn-details-warning btnCityDetails">
+                        {button ? "less info" : "more info" }
+                        </Button>
+                        }
+                {button && <div><UnderConstruction/> <Button onClick={buttonFunction} className=" btn btn-details btn-warning btn-details-warning btnCityDetails">
+                        {button ? "less info" : "more info" }
+                        </Button>
+                        </div> }
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
 
             )}
             </>
@@ -60,7 +96,6 @@ const CityDetails = (props) => {
                         </Button>{" "}
                     </LinkRouter>
                 </div>
-        <UnderConstruction/>
         </>
     );
 }
