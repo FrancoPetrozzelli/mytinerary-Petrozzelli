@@ -587,7 +587,39 @@ width: 100%;
 
 
 
-.itinerariesCard{
-  width: 80%;
 
+.itinerariesCard{
+  width: 50%;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  max-width: 100%;
+  margin: 20px;
+  overflow: hidden;
+}
+
+.sizeImage{
+  height: 7rem;
+  width: 7rem;
+  border-radius: 50%;
+  
+}
+
+.userImageContainer{
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 1rem;
+  align-items: center;
+}
+
+.userName{
+  margin-right: 1rem;
+}
+
+.titleCardsItineraries{
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  font-size: 50px;
+  margin-top: 1rem;
 }

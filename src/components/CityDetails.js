@@ -53,14 +53,51 @@ const CityDetails = (props) => {
             <>
             {props.itinerariesByCityId.map(itinerary => 
         <div key={itinerary._id}>
-            <div className="itinerariesCardContainer d-flex justify-content-center m-5">
+            <div className="itinerariesCardContainer d-flex justify-content-center  m-5">
                 <div className="itinerariesCard bg-warning ">
+                    <div className="titleCardsItineraries">
+                <h2>{itinerary.itinerary}</h2>
+                    </div>
+
+                <div className="userImageContainer">
+                    <h3 className="userName">
+                        {itinerary.username}
+                    </h3>
+                    <img className="sizeImage" src={process.env.PUBLIC_URL +"/assets/"+ itinerary.userimage} alt="user"/>
+                </div>
+
                 
-                <h1>{itinerary.itinerary}</h1>
-                <p>{itinerary.price}</p>
-                <p>{itinerary.duration}</p>
+
+
+                {/* <p>Price: {itinerary.price}</p> */}
+                {/* <div>
+                    {[...Array(price)].map((money, x) =>{
+
+                        return()
+
+
+
+
+                    }
+
+
+
+                    )}
+                </div> */}
+                
+
+
+
+
+
+
+                <p>Duration: {itinerary.duration}</p>
                 <p>{itinerary.description}</p>
-                <p>{itinerary.hashtags}</p>
+                <div>{itinerary.hashtags.map((hashtagsMap, hashtagsKey) => 
+                <div key={hashtagsKey}>
+                {hashtagsMap }
+                </div> ) 
+                }</div>
 
                 {!button && <Button onClick={buttonFunction} className=" btn btn-details btn-warning btn-details-warning btnCityDetails">
                         {button ? "less info" : "more info" }
@@ -70,7 +107,7 @@ const CityDetails = (props) => {
                         {button ? "less info" : "more info" }
                         </Button>
                         </div> }
-
+                    
                 </div>
             </div>
         </div>
