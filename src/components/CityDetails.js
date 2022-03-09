@@ -54,58 +54,37 @@ const CityDetails = (props) => {
             {props.itinerariesByCityId.map(itinerary => 
         <div key={itinerary._id}>
             <div className="itinerariesCardContainer d-flex justify-content-center  m-5">
-                <div className="itinerariesCard bg-warning ">
+                <div className="itinerariesCard ">
                     <div className="titleCardsItineraries">
-                <h2>{itinerary.itinerary}</h2>
+                <h2 className="itineraryTitle">{itinerary.itinerary}</h2>
                     </div>
 
                 <div className="userImageContainer">
-                    <h3 className="userName">
+                    <h3 className="userName f-white">
                         {itinerary.username}
                     </h3>
                     <img className="sizeImage" src={process.env.PUBLIC_URL +"/assets/"+ itinerary.userimage} alt="user"/>
                 </div>
 
                 
-
-
-                {/* <p>Price: {itinerary.price}</p> */}
-                {/* <div>
-                    {[...Array(price)].map((money, x) =>{
-
-                        return()
-
-
-
-
-                    }
-
-
-
-                    )}
-                </div> */}
-                
-
-
-
-
-
-
-                <p>Duration: {itinerary.duration}</p>
-                <p>{itinerary.description}</p>
-                <div>{itinerary.hashtags.map((hashtagsMap, hashtagsKey) => 
+                <p className="d-flex f-white">Price: <span >{"💰".repeat(parseInt(itinerary.price))}</span ></p>
+                <p className="d-flex f-white">Duration: {itinerary.duration}</p>
+                <p className="d-flex f-white">{itinerary.description}</p>
+                <div className="d-flex f-white hashtags">{itinerary.hashtags.map((hashtagsMap, hashtagsKey) => 
                 <div key={hashtagsKey}>
                 {hashtagsMap }
                 </div> ) 
                 }</div>
 
-                {!button && <Button onClick={buttonFunction} className=" btn btn-details btn-warning btn-details-warning btnCityDetails">
+                {!button && <div className="d-flex justify-content-center"><Button onClick={buttonFunction} className=" btn btn-details btn-warning btn-details-warning btnCityDetails">
                         {button ? "less info" : "more info" }
                         </Button>
+                        </div>
                         }
-                {button && <div><UnderConstruction/> <Button onClick={buttonFunction} className=" btn btn-details btn-warning btn-details-warning btnCityDetails">
+                {button && <div><UnderConstruction/> <div className="d-flex justify-content-center"><Button onClick={buttonFunction} className=" btn btn-details btn-warning btn-details-warning btnCityDetails">
                         {button ? "less info" : "more info" }
                         </Button>
+                                                    </div>
                         </div> }
                     
                 </div>

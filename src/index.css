@@ -579,6 +579,7 @@ width: 100%;
   font-size: 1.5rem;
   color: rgb(255, 255, 255);
   background-color: #006eff;
+  margin-bottom: 1rem;
 }
 
 
@@ -590,7 +591,7 @@ width: 100%;
 
 .itinerariesCard{
   width: 50%;
-  background-color: #fff;
+  background-color: #212529;
   border-radius: 10px;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
   max-width: 100%;
@@ -622,4 +623,25 @@ width: 100%;
   text-transform: uppercase;
   font-size: 50px;
   margin-top: 1rem;
+}
+
+
+
+.itineraryTitle{
+  margin-top: 0.5rem;
+  color: white;
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.f-white{
+  color: white;
+  margin-left: 1rem;
+}
+
+.hashtags{
+  display: flex;
+  justify-content: space-between;
+  width: 40%;
+  margin-bottom: 1rem;
 }
