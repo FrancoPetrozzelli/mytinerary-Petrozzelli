@@ -6,7 +6,7 @@ const itinerariesActions = { //es un objeto q tiene funcones
         return async(dispatch, getState) => {
             const response = await axios.get('http://localhost:4000/api/itineraries')
             dispatch({type:'allMyItinerariesReducer', payload:response.data.response})
-            console.log(response.data.response)
+            //console.log(response.data.response)
 
         } 
 
@@ -16,7 +16,7 @@ const itinerariesActions = { //es un objeto q tiene funcones
     itinerariesByCity: (cityid) => {
         return async (dispatch, getState) => {
             const response = await axios.get(`http://localhost:4000/api/itineraries/${cityid}`)
-            console.log(response)
+            //console.log(response)
             dispatch({type:'itinerariesByCityReducer', payload:response.data.response})
 
         }

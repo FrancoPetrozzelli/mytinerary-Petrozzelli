@@ -21,7 +21,7 @@ const citiesActions = { //es un objeto q tiene funcones
         return async(dispatch, getState) => {
             const response = await axios.get(`http://localhost:4000/api/city/${id}`)
             //.then(response => ))
-            console.log(response.data.response)
+            //console.log(response.data.response)
             dispatch({type:'cityReducer', payload:response.data.response})
         } 
     },

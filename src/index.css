@@ -343,70 +343,6 @@ body {
 
 
 
-/* // responsive // */
-@media (max-width:425px){
-  .responsiveCards{width: 100%;}
-}
-
-@media (min-width:680px){
-  .course{
-    flex-direction: column;
-  }
-
-  .course-preview {
-    width: 100%;
-    height: 10rem;
-    background-color: #2A265F;
-    color: #fff;
-    padding: 30px;
-    max-width: 50rem;
-      background-image: url(../public/assets/xxxl.png);
-      background-position: 55%;
-      background-size: cover;
-    }
-}
-
-@media (max-width:840px){
-  .course{
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-  .course-preview {
-    width: 100%;
-    height: 10rem;
-    background-color: #2A265F;
-    color: #fff;
-    padding: 30px;
-      background-image: url(../public/assets/xxxl.png);
-      background-position: 55%;
-      background-size: cover;
-    }
-  .buttonHeaderContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding-bottom: 2rem;
-    }
-}
-
-@media (min-width:840px){
-  .course{
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-  }
-  .course-preview {
-    width: 100%;
-    height: 20rem;
-    background-color: #2A265F;
-    color: #fff;
-    padding: 30px;
-      background-image: url(../public/assets/xxxl.png);
-      background-position: 55%;
-      background-size: cover;
-    }
-}
 
 
 
@@ -590,7 +526,7 @@ width: 100%;
 
 
 .itinerariesCard{
-  width: 50%;
+  width:70%;
   background-color: #212529;
   border-radius: 10px;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
@@ -630,8 +566,9 @@ width: 100%;
 .itineraryTitle{
   margin-top: 0.5rem;
   color: white;
-  font-size: 48px;
+  font-size: 80%;
   font-weight: bold;
+  text-align: center;
 }
 
 .f-white{
@@ -644,4 +581,145 @@ width: 100%;
   justify-content: space-between;
   width: 40%;
   margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.sizeData{
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+.sizeDataDos{
+  font-size: 1.3rem;
+}
+
+.containerData{
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.spaceLikes{
+  letter-spacing: 0.5rem;
+}
+
+
+
+.itinerariesCardContainer{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* // responsive // */
+@media (max-width:425px){
+  .responsiveCards{width: 100%;}
+  .itinerariesCard{width: 100%;}
+  .itineraryTitle{font-size: 1rem; }
+  .hashtags{flex-direction: column;}
+  .sizeDataDos{font-size: 1rem;}
+  .sizeData{font-size:1.2rem;}
+
+}
+
+
+
+@media (max-width:500px){
+  .responsiveCards{width: 100%;}
+  .itinerariesCard{width: 90%;}
+
+
+}
+
+@media (max-width:700px){
+  .responsiveCards{width: 100%;}
+  .itinerariesCard{width: 90%;}
+
+
+}
+
+@media (max-width:800px){
+  .responsiveCards{width: 100%;}
+  .itinerariesCard{width: 80%;}
+
+
+}
+
+
+
+
+@media (min-width:680px){
+  .course{
+    flex-direction: column;
+  }
+
+  .course-preview {
+    width: 100%;
+    height: 10rem;
+    background-color: #2A265F;
+    color: #fff;
+    padding: 30px;
+    max-width: 50rem;
+      background-image: url(../public/assets/xxxl.png);
+      background-position: 55%;
+      background-size: cover;
+    }
+
+
+
+}
+
+@media (max-width:840px){
+  .course{
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .course-preview {
+    width: 100%;
+    height: 10rem;
+    background-color: #2A265F;
+    color: #fff;
+    padding: 30px;
+      background-image: url(../public/assets/xxxl.png);
+      background-position: 55%;
+      background-size: cover;
+    }
+  .buttonHeaderContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 2rem;
+    }
+}
+
+@media (min-width:840px){
+  .course{
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .course-preview {
+    width: 100%;
+    height: 20rem;
+    background-color: #2A265F;
+    color: #fff;
+    padding: 30px;
+      background-image: url(../public/assets/xxxl.png);
+      background-position: 55%;
+      background-size: cover;
+    }
 }

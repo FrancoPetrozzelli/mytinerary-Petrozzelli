@@ -53,7 +53,7 @@ const CityDetails = (props) => {
             <>
             {props.itinerariesByCityId.map(itinerary => 
         <div key={itinerary._id}>
-            <div className="itinerariesCardContainer d-flex justify-content-center  m-5">
+            <div className="itinerariesCardContainer d-flex justify-content-center">
                 <div className="itinerariesCard ">
                     <div className="titleCardsItineraries">
                 <h2 className="itineraryTitle">{itinerary.itinerary}</h2>
@@ -66,15 +66,18 @@ const CityDetails = (props) => {
                     <img className="sizeImage" src={process.env.PUBLIC_URL +"/assets/"+ itinerary.userimage} alt="user"/>
                 </div>
 
-                
-                <p className="d-flex f-white">Price: <span >{"💰".repeat(parseInt(itinerary.price))}</span ></p>
-                <p className="d-flex f-white">Duration: {itinerary.duration}</p>
-                <p className="d-flex f-white">{itinerary.description}</p>
-                <div className="d-flex f-white hashtags">{itinerary.hashtags.map((hashtagsMap, hashtagsKey) => 
+                <div className="containerData">
+                <p className="d-flex f-white sizeData">Price: <span >{"💰".repeat(parseInt(itinerary.price))}</span ></p>
+                <p className="d-flex f-white sizeData">Duration: {itinerary.duration}</p>
+                <p className="d-flex f-white sizeDataDos">{itinerary.description}</p>
+                <p className="f-white sizeDataDos spaceLikes">{itinerary.likes + "💗"}</p>
+                <div className="d-flex f-white hashtags ">{itinerary.hashtags.map((hashtagsMap, hashtagsKey) => 
                 <div key={hashtagsKey}>
                 {hashtagsMap }
                 </div> ) 
                 }</div>
+
+                </div>
 
                 {!button && <div className="d-flex justify-content-center"><Button onClick={buttonFunction} className=" btn btn-details btn-warning btn-details-warning btnCityDetails">
                         {button ? "less info" : "more info" }
