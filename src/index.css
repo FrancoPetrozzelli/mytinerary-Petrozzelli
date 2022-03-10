@@ -640,6 +640,8 @@ width: 100%;
 @media (max-width:500px){
   .responsiveCards{width: 100%;}
   .itinerariesCard{width: 90%;}
+  .hashtags{flex-direction: column;}
+ 
 
 
 }
@@ -647,6 +649,8 @@ width: 100%;
 @media (max-width:700px){
   .responsiveCards{width: 100%;}
   .itinerariesCard{width: 90%;}
+  .hashtags{flex-direction: column;}
+  
 
 
 }
@@ -654,6 +658,7 @@ width: 100%;
 @media (max-width:800px){
   .responsiveCards{width: 100%;}
   .itinerariesCard{width: 80%;}
+  .hashtags{flex-direction: column;}
 
 
 }
