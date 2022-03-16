@@ -8,6 +8,7 @@ import Button from "react-bootstrap/Button";
 import citiesActions from "../redux/actions/citiesActions";
 import itinerariesActions from "../redux/actions/itinerariesActions";
 import { connect } from "react-redux";
+import ItinerariesNotFound from "./ItinerariesNotFound";
 
 
 const CityDetails = (props) => {
@@ -102,7 +103,7 @@ const CityDetails = (props) => {
             )}
             </>
         ):(<>
-            <p>no hay  itinerarios</p>
+            <ItinerariesNotFound/>
             </>
             )
         }

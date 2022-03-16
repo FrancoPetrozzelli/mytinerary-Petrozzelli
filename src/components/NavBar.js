@@ -2,7 +2,11 @@ import { Navbar, Nav, Container, NavDropdown, Form, FormControl, Button } from '
 import { UilUserSquare } from '@iconscout/react-unicons'
 import {Link} from 'react-router-dom'
 
+
 const NavbarMain = () => {
+
+    const token = true
+
     return (
         <Navbar bg="info" expand="lg" className='d-flex align-items-center'>
 <Container fluid>
@@ -21,8 +25,16 @@ const NavbarMain = () => {
         <UilUserSquare className='iconUser'/>
     </div> */}
     <NavDropdown title={<UilUserSquare className='iconUser'/>} id="basic-nav-dropdown">
-        <NavDropdown.Item href="#action/3.1">Sign In</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.2">Sign Up</NavDropdown.Item>
+        {token? (
+
+            <NavDropdown.Item >Log Out</NavDropdown.Item>
+            
+        ):(
+            <>
+            <NavDropdown.Item ><Link to={"/login"}>Log In</Link></NavDropdown.Item>
+            <NavDropdown.Item><Link to={"/signup"}>Sign Up</Link></NavDropdown.Item>
+            </>
+        )}
         </NavDropdown>
     </Navbar.Collapse>
 </Container>

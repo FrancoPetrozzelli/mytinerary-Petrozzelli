@@ -7,16 +7,11 @@ import Error404 from './components/Error404'
 import axios from 'axios'
 import React, {useEffect, useState} from 'react'
 import CityDetails from './components/CityDetails'
+import LogIn from './pages/LogIn';
+import SignUp from './pages/SignUp';
 
 function App() {
-//   const [apidata, setApiData ]= useState([])
 
-// useEffect(()=>{
-
-//   axios.get(`http://localhost:4000/api/allcities`)
-//   .then(response=>console.log(response.data.response.myCities))
-
-// },[])
 
   return (
     <BrowserRouter>
@@ -28,6 +23,9 @@ function App() {
       <Route path='/cities' element={<Cities/>}/>
       <Route path ="/detalle/:id" element={<CityDetails/>}/>
       <Route path='*' element={<Error404/>}/>
+      <Route path='/login' element={<LogIn/>}/>
+      <Route path='/signup' element={<SignUp/>}/>
+
     </Routes>
 
     <FooterMain/>
