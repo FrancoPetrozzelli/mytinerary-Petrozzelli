@@ -4,14 +4,24 @@ import NavbarMain from './components/NavBar'
 import FooterMain from './components/Footer'
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Error404 from './components/Error404'
-import axios from 'axios'
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 import CityDetails from './components/CityDetails'
 import LogIn from './pages/LogIn';
 import SignUp from './pages/SignUp';
+import userActions from './redux/actions/userActions';
+import { connect } from 'react-redux';
 
-function App() {
 
+function App(props) {
+
+
+  useEffect(() => {
+ 
+    if(localStorage.getItem('token')!== null){
+      const token = localStorage.getItem("token")
+      props.TokenVerify(token)
+    }
+  },[])
 
   return (
     <BrowserRouter>
@@ -23,10 +33,8 @@ function App() {
       <Route path='/cities' element={<Cities/>}/>
       <Route path ="/detalle/:id" element={<CityDetails/>}/>
       <Route path='*' element={<Error404/>}/>
-      <Route path='/login' element={<LogIn/>}/>
-      <Route path='/signup' element={<SignUp/>}/>
-      {/* {!props.user &&<Route path="/" element={<SignIn />} />}
-			{!props.user &&<Route path="/signup" element={<SignUp />} />} */}
+      {!props.user &&<Route path="/login" element={<LogIn/>} />}
+			{!props.user &&<Route path="/signup" element={<SignUp />} />}
 
     </Routes>
 
@@ -37,4 +45,17 @@ function App() {
   );
 }
 
-export default App;
+const mapDispatchToProps = {
+	TokenVerify: userActions.TokenVerify,
+
+}
+
+
+const mapStateToProps = (state)=>{
+  return{
+    user: state.userReducer.user
+  }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

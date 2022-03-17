@@ -1,6 +1,3 @@
-import NavBar from "../components/NavBar"
-import HeaderMain from "../components/Header"
-import FooterMain from "../components/Footer"
 import CitiesCards from "../components/CitiesCards"
 
 

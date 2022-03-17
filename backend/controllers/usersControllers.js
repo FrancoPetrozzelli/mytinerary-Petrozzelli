@@ -226,6 +226,19 @@ const usersController = {
         const user = await User.findOne({ email })
         await user.save()
         res.json(console.log('sesion cerrada ' + email))
+    },
+
+
+    TokenVerify:(req, res) => {
+        console.log(req.user)
+        if(!req.err){
+        res.json({success:true,
+                response:{id:req.user.id, firstName:req.user.firstName, lastName:req.user.lastName, imageUrl:req.user.imageUrl, email:req.user.email, from:"token"},
+                message:"Bienvenido nuevamente "+req.user.firstName}) 
+        }else{
+            res.json({success:false,
+            message:"Por favor realiza nuevamente signIn"}) 
+        }
     }
 
 }

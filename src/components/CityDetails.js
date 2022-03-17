@@ -1,6 +1,4 @@
-import cities from "../pages/Cities";
 import UnderConstruction from "./UnderConstruction";
-import axios from 'axios'
 import React, {useEffect, useState} from 'react'
 import {useParams} from 'react-router-dom'
 import { Link as LinkRouter } from "react-router-dom";
@@ -14,8 +12,6 @@ import ItinerariesNotFound from "./ItinerariesNotFound";
 const CityDetails = (props) => {
     // console.log(props) 
 
-        
-        const [printCities, setPrintCities] = useState([])
         let {id} = useParams()
 
         useEffect( () =>{

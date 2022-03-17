@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import userActions from "../redux/actions/userActions"
 import { Link } from 'react-router-dom'
-import axios from "axios";
 import {HiOutlineMail} from "react-icons/hi"
 import {GoLock} from "react-icons/go"
 import FacebookLogIn from "./FacebookLogIn";
