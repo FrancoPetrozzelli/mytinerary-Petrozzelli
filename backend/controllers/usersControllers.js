@@ -154,30 +154,25 @@ const usersController = {
                 res.json({ success: false, message: "Tu usuarios no a sido registrado realiza signIn" })
 
             } else {
-                if (from === "form-login") { 
+                if (from !== "form-signup") { 
                     
-                    //let passwordMatch =  userExist.password.filter(pass =>bcryptjs.compareSync(password, pass))
-
-                    let passwordMatch = bcryptjs.compareSync(password, userExist.password)
+                    let passwordMatch =  userExist.password.filter(pass =>bcryptjs.compareSync(password, pass))
                     
-                    // if (passwordMatch.length >0) 
-                    if (passwordMatch){ //TERERO VERIFICA CONTRASEÑA
+                    if (passwordMatch.length >0) { //TERERO VERIFICA CONTRASEÑA
 
-                        // const userData = {
-                        //                 id:userExist._id,
-                        //                 firstName: userExist.firstName,
-                        //                 email: userExist.email,
-                        //                 from:userExist.from
-                        //                 }
-                        // await userExist.save()
+                        const userData = {
+                                        id:userExist._id,
+                                        firstName: userExist.firstName,
+                                        email: userExist.email,
+                                        from:userExist.from
+                                        }
+                        await userExist.save()
 
-                        // const token = jwt.sign({...userData}, process.env.SECRET_KEY,{expiresIn:  60* 60*24 })
-                        const token = jwt.sign({...userExist}, process.env.SECRET_KEY,{expiresIn:  60* 60*24 })
+                        const token = jwt.sign({...userData}, process.env.SECRET_KEY,{expiresIn:  60* 60*24 })
 
                         res.json({ success: true, 
                                 from:from,
-                                // response: {token, userData }, 
-                                response: {token, ...userExist }, 
+                                response: {token, userData }, 
                                 message:"Bienvenido nuevamente "+userData.firstName,
                                 })
 

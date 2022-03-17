@@ -14,7 +14,7 @@ const handleSubmit = (event) => {
     const logedUser={
         email:event.target[0].value,
         password:event.target[1].value,
-        from:"form-login"
+        from:"form-signup"
     }
     props.logInUser(logedUser)
 }
