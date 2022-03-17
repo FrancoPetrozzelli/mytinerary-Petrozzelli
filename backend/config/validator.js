@@ -20,7 +20,7 @@ const validator = (req, res, next) => {
             'string.pattern':"El password debe ser alphanumerico y contener un numero"
         }),
 
-        urlimage: joi.string().min(5).trim().required().messages({
+        imageUrl: joi.string().min(5).trim().required().messages({
             'string.min': "Please use a valid URL."
         }),
 

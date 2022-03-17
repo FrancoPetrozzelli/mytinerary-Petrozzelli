@@ -28,12 +28,15 @@ Router.route('/itineraries/:id').get(getItinerariesByCity)
 
 
 const userControllers = require('../controllers/usersControllers')
-const {signUpUsers, logInUser} = userControllers
+const {signUpUsers, logInUser, verifyEmail} = userControllers
 
 //, logOutUser
 
-Router.route('/auth/signUp').post(validator, signUpUsers)
-Router.route('/auth/logIn').post(logInUser)
+Router.route('/auth/signup').post(validator, signUpUsers)
+Router.route('/auth/login').post(logInUser)
 // Router.route('/auth/logout').post(logOutUser)
+
+Router.route('/verify/:uniqueString') //RECIBE EL LINK DE USUARIO
+.get(verifyEmail) //LLAMA A FUNCION DE VERIFICACIION
 
 module.exports = Router

@@ -746,13 +746,16 @@ width: 100%;
 }
 
 .chau{
-  background-color: rgb(255, 0, 0);
+  display: flex;
+flex-direction: column;
+align-items: center!important;
 }
+
 .hola{
   background-color: white;
-  width: 40%;
+
   display: flex;
-  flex-direction: column;
+
   justify-content: center;
   align-items: center;
 
@@ -760,4 +763,68 @@ width: 100%;
 
 .labelLogin{
   margin-right: 1rem;
+}
+
+.country{
+  width: 76%;
+}
+
+.countrycontainer{
+  margin-left: 1rem; 
+}
+
+/* 
+PARA EL RESPONSIVE, EL WIDTH DE COUNTRY TIENE Q ESTAR 100% Y EL MARGIN LEFT SACARLO  */
+
+
+
+/* 
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+  appearance: none;
+  outline-width: 0;
+  padding: 0;
+  display: inline;
+  width: 10em;
+  border: none;
+  font-size: 14px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.29;
+  letter-spacing: normal;
+  color: #3a3a3a;
+  text-transform: uppercase;
+  border-bottom: 0px solid #757575;
+}
+option {
+    padding: 20px;
+    display: inline;
+    width: 10em;
+    border: none;
+    color: #3a3a3a;
+} */
+
+
+  /* option{ 
+    word-wrap: break-word!important;
+      white-space: -moz-pre-wrap; 
+      white-space: pre-wrap;  
+      width:300px; 
+    } */
+    
+.containertodo{
+
+  width: 40%;
+
+    }
+
+.formContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
 }

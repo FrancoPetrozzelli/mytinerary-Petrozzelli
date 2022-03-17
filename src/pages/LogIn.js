@@ -3,8 +3,11 @@ import { connect } from "react-redux";
 import userActions from "../redux/actions/userActions"
 import { Link } from 'react-router-dom'
 import axios from "axios";
+import {HiOutlineMail} from "react-icons/hi"
+import {GoLock} from "react-icons/go"
 
-function SignUp(props){
+
+const LogIn= (props) => {
 
 const handleSubmit = (event) => {
     event.preventDefault()
@@ -13,7 +16,7 @@ const handleSubmit = (event) => {
         password:event.target[1].value,
         from:"form-login"
     }
-    props.signUpUser(logedUser)
+    props.logInUser(logedUser)
 }
 
 
@@ -27,11 +30,13 @@ return (
             <div >
             <form onSubmit={handleSubmit}>    
                 <div className="mb-3 mt-3">
-                <label className="labelLogin">Email:</label>
+                {/* <label className="labelLogin">Email:</label> */}
+                <HiOutlineMail className="labelLogin"/>
                 <input type="email" placeholder="email" name="email"/>
                 </div>
                 <div className="mb-3 labelLogin">
-                <label className="labelLogin">Password:</label>
+                {/* <label className="labelLogin">Password:</label> */}
+                <GoLock className="labelLogin"/>
                 <input type="password" placeholder="password" name="password"/>
                 </div>
                 <button type="submit" className="btn btn-primary btn-block">Log In</button>
@@ -47,7 +52,7 @@ return (
 }
 
     const mapDispatchToProps = {
-        signUpUser: userActions.signUpUser
+        logInUser: userActions.logInUser
     }
 
-export default connect(null, mapDispatchToProps)(SignUp);
+export default connect(null, mapDispatchToProps)(LogIn);

@@ -2,10 +2,62 @@ const User = require('../models/usersModels')
 const bcryptjs = require('bcryptjs')
 const crypto = require('crypto')        
 const nodemailer = require('nodemailer')
-// const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken')
+
+const sendEmail = async (email, uniqueString) => { //FUNCION ENCARGADA DE ENVIAR EL EMAIL
+
+    const transporter = nodemailer.createTransport({ //DEFINIMOS EL TRASPORTE UTILIZANDO NODEMAILER
+        host: 'smtp.gmail.com',         //DEFINIMOS LO PARAMETROS NECESARIOS
+        port: 465,
+        secure: true,
+        auth: {
+            user: "usermailverifyPetrozzelli@gmail.com",    //DEFINIMOS LOS DATOS DE AUTORIZACION DE NUESTRO PROVEEDOR DE
+            pass: "petromindhub2022"                          //COREO ELECTRONICO, CONFIGURAR CUAENTAS PARA PERMIR EL USO DE APPS
+        }                                               //CONFIGURACIONES DE GMAIL
+    })
+
+    // EN ESTA SECCION LOS PARAMETROS DEL MAIL 
+    let sender = "usermailverifyPetrozzelli@gmail.com"  
+    let mailOptions = { 
+        from: sender,    //DE QUIEN
+        to: email,       //A QUIEN
+        subject: "Verificacion de email usuario ", //EL ASUNTO Y EN HTML EL TEMPLATE PARA EL CUERPO DE EMAIL Y EL LINK DE VERIFICACION
+        html: `
+        <div >
+        <h1 style="color:red">Presiona <a href=http://localhost:4000/api/verify/${uniqueString}>aqui</a> para confirma tu email. Gracias </h1>
+        </div>
+        `
+    
+    };
+    await transporter.sendMail(mailOptions, function (error, response) { //SE REALIZA EL ENVIO
+        if (error) { console.log(error) }
+        else {
+            console.log("Mensaje enviado")
+
+        }
+    })
+};
+
+
+
 
 
 const usersController = {
+
+    verifyEmail: async (req, res) => {
+
+        const { uniqueString } = req.params; //EXTRAE EL EL STRING UNICO DEL LINK
+
+        const user = await User.findOne({ uniqueString: uniqueString })
+        console.log(user) //BUSCA AL USUARIO CORRESPONDIENTE AL LINK
+        if (user) {
+            user.verifiedEmail = true //COLOCA EL CAMPO emailVerified en true
+            await user.save()
+            res.redirect("http://localhost:3000/login") //REDIRECCIONA AL USUARIO A UNA RUTA DEFINIDA
+            //return  res.json({success:true, response:"Su email se ha verificado correctamente"})
+        }
+        else { res.json({ success: false, response: "Su email no se ha verificado" }) }
+    },
 
     signUpUsers:async (req,res)=>{
 
@@ -19,7 +71,7 @@ const usersController = {
             
             if (userExist) {
                 
-                if (userExist.from.indexOf(from) === 0) { 
+                if (userExist.from.indexOf(from) !== -1) { 
 
                     res.json({ success: false, from:"signup", message: "User is already registered, please log in" })
 
@@ -27,9 +79,11 @@ const usersController = {
                     const hashedPassword = bcryptjs.hashSync(password, 10)
                     userExist.from.push(from)
                     userExist.password.push(hashedPassword) 
-                    if(from === "form-Signup"){ 
+                    if(from === "form-signup"){ 
+                        userExist.uniqueString = crypto.randomBytes(15).toString('hex') 
                         //PORSTERIORMENTE AGREGAREMOS LA VERIFICACION DE EMAIL
                         await userExist.save()
+                        await sendEmail(email, userExist.uniqueString)
     
                     res.json({
                         success: true, 
@@ -57,13 +111,13 @@ const usersController = {
                     password:[hashedPassword],
                     imageUrl,
                     country,
-                    verifiedEmail:true,
                     from:[from],
-                
+                    verifiedEmail:false,
+                    uniqueString:crypto.randomBytes(15).toString('hex'),
                 })
             
                 //SE LO ASIGNA AL USUARIO NUEVO
-                if (from !== "form-Signup") { //SI LA PETICION PROVIENE DE CUENTA GOOGLE
+                if (from !== "form-signup") { //SI LA PETICION PROVIENE DE CUENTA GOOGLE
                     await newUser.save()
                     res.json({
                         success: true, 
@@ -75,6 +129,7 @@ const usersController = {
                     //PASAR EMAIL VERIFICADO A FALSE
                     //ENVIARLE EL E MAIL PARA VERIFICAR
                     await newUser.save()
+                    await sendEmail(email, newUser.uniqueString) 
     
                     res.json({
                         success: true, 
@@ -99,23 +154,31 @@ const usersController = {
                 res.json({ success: false, message: "Tu usuarios no a sido registrado realiza signIn" })
 
             } else {
-                if (from !== "form-Signin") { 
+                if (from === "form-login") { 
                     
-                    let passwordMatch =  userExist.password.filter(pass =>bcryptjs.compareSync(password, pass))
-                    
-                    if (passwordMatch.length >0) { //TERERO VERIFICA CONTRASEÑA
+                    //let passwordMatch =  userExist.password.filter(pass =>bcryptjs.compareSync(password, pass))
 
-                        const userData = {
-                                        firstName: userExist.firstName,
-                                        email: userExist.email,
-                                        from:userExist.from
-                                        }
-                        await userExist.save()
+                    let passwordMatch = bcryptjs.compareSync(password, userExist.password)
+                    
+                    // if (passwordMatch.length >0) 
+                    if (passwordMatch){ //TERERO VERIFICA CONTRASEÑA
+
+                        // const userData = {
+                        //                 id:userExist._id,
+                        //                 firstName: userExist.firstName,
+                        //                 email: userExist.email,
+                        //                 from:userExist.from
+                        //                 }
+                        // await userExist.save()
+
+                        // const token = jwt.sign({...userData}, process.env.SECRET_KEY,{expiresIn:  60* 60*24 })
+                        const token = jwt.sign({...userExist}, process.env.SECRET_KEY,{expiresIn:  60* 60*24 })
 
                         res.json({ success: true, 
                                 from:from,
-                                response: {userData }, 
-                                message:"Bienvenido nuevamente "+userData.fullName,
+                                // response: {token, userData }, 
+                                response: {token, ...userExist }, 
+                                message:"Bienvenido nuevamente "+userData.firstName,
                                 })
 
                     } else {
@@ -129,15 +192,18 @@ const usersController = {
                         let passwordMatch =  userExist.password.filter(pass =>bcryptjs.compareSync(password, pass))
                         if(passwordMatch.length >0){
                         const userData = {
-                            fullName: userExist.fullName, 
+                            id:userExist._id,
+                            firstName: userExist.firstName, 
                             email: userExist.email,
                             from:userExist.from
                             }
+
+                            const token = jwt.sign({...userData}, process.env.SECRET_KEY, {expiresIn:  60* 60*24 })
                         
                         res.json({ success: true, 
                             from: from, 
-                            response: {userData }, 
-                            message:"Bienvenido nuevamente "+userData.fullName,
+                            response: {token, userData }, 
+                            message:"Bienvenido nuevamente "+userData.firstName,
                         })
                         }else{
                             res.json({ success: false, 

@@ -8,9 +8,10 @@ const userSchema = new mongoose.Schema({
     email:{type:String, required:true},
     password:[{type:String, required:true}],
     imageUrl:{type:String, required:true},
-    verifiedEmail:{type:Boolean, required:true},
     country:{type:String, required:true},
-    from:{type:Array}
+    from:{type:Array},
+    verifiedEmail:{type:Boolean, required:true},
+    uniqueString:{type:String, required:true}
 
 })
 
