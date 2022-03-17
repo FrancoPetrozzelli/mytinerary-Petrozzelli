@@ -25,6 +25,8 @@ function App() {
       <Route path='*' element={<Error404/>}/>
       <Route path='/login' element={<LogIn/>}/>
       <Route path='/signup' element={<SignUp/>}/>
+      {/* {!props.user &&<Route path="/" element={<SignIn />} />}
+			{!props.user &&<Route path="/signup" element={<SignUp />} />} */}
 
     </Routes>
 
