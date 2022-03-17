@@ -39,9 +39,6 @@ const sendEmail = async (email, uniqueString) => { //FUNCION ENCARGADA DE ENVIAR
 };
 
 
-
-
-
 const usersController = {
 
     verifyEmail: async (req, res) => {
@@ -164,6 +161,7 @@ const usersController = {
                                         id:userExist._id,
                                         firstName: userExist.firstName,
                                         email: userExist.email,
+                                        imageUrl: userExist.imageUrl,
                                         from:userExist.from
                                         }
                         await userExist.save()
@@ -190,6 +188,7 @@ const usersController = {
                             id:userExist._id,
                             firstName: userExist.firstName, 
                             email: userExist.email,
+                            imageUrl: userExist.imageUrl,
                             from:userExist.from
                             }
 
@@ -198,7 +197,7 @@ const usersController = {
                         res.json({ success: true, 
                             from: from, 
                             response: {token, userData }, 
-                            message:"Bienvenido nuevamente "+userData.firstName,
+                            message:" Bienvenido nuevamente "+userData.firstName,
                         })
                         }else{
                             res.json({ success: false, 

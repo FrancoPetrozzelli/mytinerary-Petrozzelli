@@ -8,6 +8,7 @@ import {HiUserGroup, HiOutlineMail} from "react-icons/hi"
 import {GoLock} from "react-icons/go"
 import {BsFillImageFill} from "react-icons/bs"
 import {BiWorld} from "react-icons/bi"
+import FacebookSignUp from "./FacebookSignUp";
 
 
 function SignUp(props){
@@ -46,49 +47,51 @@ const handleSubmit = (event) => {
 
 return ( 
     
-        <div className="d-flex justify-content-center align-items-center">
+        <div className="d-flex justify-content-center align-items-center containertodotodo">
         <div className="hola containertodo">
         <div className="chau">
             <div>
-                <h2>Sign Up</h2>
+                <FacebookSignUp/>
+                <h5 className="h5signup"> OR </h5>
+                <h2>SIGN UP</h2>
             </div>
             <form onSubmit={handleSubmit} className="formContainer">   
 
                     <div className="mb-3 mt-3">
                 {/* <label className="labelLogin">First Name</label> */}
                 <FaUser className="labelLogin"/>
-                <input type="text" placeholder="First Name" name="firstName"/>
+                <input type="text" placeholder="First Name" name="firstName" className="inputsignup"/>
                     </div>
 
                     <div className="mb-3 mt-3">
                 {/* <label className="labelLogin">Last Name</label> */}
                 <HiUserGroup className="labelLogin"/>
-                <input type="text" placeholder="Last Name" name="lastName"/>
+                <input type="text" placeholder="Last Name" name="lastName" className="inputsignup"/>
                     </div>
 
                     <div className="mb-3 mt-3">
                 {/* <label className="labelLogin">Email</label> */}
                 <HiOutlineMail className="labelLogin"/>
-                <input type="email" placeholder="email@email.com" name="email"/>
+                <input type="email" placeholder="email@email.com" name="email" className="inputsignup"/>
                     </div>
 
                 <div className="mb-3 mt-3">
                 {/* <label className="labelLogin">Password:</label> */}
                 <GoLock className="labelLogin"/>
-                <input type="password" placeholder="password" name="password"/>
+                <input type="password" placeholder="Password" name="password" className="inputsignup"/>
                 </div>
 
-                    <div className="mb-3 mt-3">
+                    <div className="mb-3 mt-3 asdasd">
                 {/* <label className="labelLogin">Url Image</label> */}
                 <BsFillImageFill className="labelLogin"/>
-                <input type="url" placeholder="url profile image" name="imageUrl"/>
+                <input type="url" placeholder="Url profile image" name="imageUrl" className="inputsignup"/>
                     </div>
 
     <div className="countrycontainer">
 
                     <div className="mb-3 mt-3">
                         <BiWorld className="labelLogin"/>
-                                    <select name="country" className="country">
+                                    <select name="country" className="country" >
                                         <option className="countryoption">Choose your country...</option>
                 {countries.map(country =>(
                     <option value={country.name}>{country.name}</option>
@@ -100,11 +103,14 @@ return (
 
 
                     <div>
-                <button type="submit" className="btn btn-primary btn-block">Log In</button>
+                <button type="submit" className="btn btn-primary btn-block">Sign up</button>
                     </div>
 
+            <div className="mt-3">
+                <p>Do you have an account?</p>
+            </div>
             <div>
-                <p>You have an account? Log In <Link to="/login">Here</Link></p>
+                <p>Log in <Link to="/login" className="signuplink">here</Link></p>
             </div>
 
 

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import axios from "axios";
 import {HiOutlineMail} from "react-icons/hi"
 import {GoLock} from "react-icons/go"
-
+import FacebookLogIn from "./FacebookLogIn";
 
 const LogIn= (props) => {
 
@@ -25,7 +25,8 @@ return (
          <div className="d-flex justify-content-center">
         <div className="hola">
             <div>
-                <h2>Log In</h2>
+                <h2>LOG IN</h2>
+                <FacebookLogIn/>
             </div>
             <div >
             <form onSubmit={handleSubmit}>    

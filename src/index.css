@@ -725,6 +725,9 @@ width: 100%;
     width: 100%;
     padding-bottom: 2rem;
     }
+    .countrycontainer{
+      margin: 0rem!important;
+    }
 }
 
 @media (min-width:840px){
@@ -743,22 +746,80 @@ width: 100%;
       background-position: 55%;
       background-size: cover;
     }
+    .country{
+      width: 100%;
+    }
+    
 }
 
 .chau{
   display: flex;
 flex-direction: column;
 align-items: center!important;
+
+}
+
+.imgUser{
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.h5signup{
+  margin-top: 1rem;
+}
+
+.signuplink{
+  color: blue;
+  text-decoration: underline;
+}
+
+.inputsignup{
+  border-radius: 10px;
+  padding: 0.2rem;
 }
 
 .hola{
   background-color: white;
-
+  text-align: center;
   display: flex;
-
   justify-content: center;
   align-items: center;
+  padding-left: 10px;
+  margin-top: 1rem;
+    margin: 80px auto;
+    padding: 40px 30px 30px 30px;
+    background-color: #ecf0f3;
+    border-radius: 15px;
+    box-shadow: 13px 13px 20px #247cac, -13px -13px 20px #247cac;
 
+}
+
+
+
+
+.buttonsocial :nth-child(1){
+	margin-right: 0px !important;
+	width: 45px !important;
+}
+
+.my-facebook-button-class{
+  
+	background-color: rgb(52, 52, 207);
+	color: #ffffff;
+  font-size: 1.3em;
+  font-weight: 600;
+  position: relative;
+  outline: none;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  height: 55px;
+  width: 300px;
+	
 }
 
 .labelLogin{
@@ -766,59 +827,19 @@ align-items: center!important;
 }
 
 .country{
-  width: 76%;
+  width: 85%;
+  border-radius: 10px;
+  padding: 0.2rem;
 }
 
 .countrycontainer{
   margin-left: 1rem; 
 }
 
-/* 
-PARA EL RESPONSIVE, EL WIDTH DE COUNTRY TIENE Q ESTAR 100% Y EL MARGIN LEFT SACARLO  */
 
 
-
-/* 
-select {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  -webkit-border-radius: 0px;
-  appearance: none;
-  outline-width: 0;
-  padding: 0;
-  display: inline;
-  width: 10em;
-  border: none;
-  font-size: 14px;
-  font-weight: 300;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.29;
-  letter-spacing: normal;
-  color: #3a3a3a;
-  text-transform: uppercase;
-  border-bottom: 0px solid #757575;
-}
-option {
-    padding: 20px;
-    display: inline;
-    width: 10em;
-    border: none;
-    color: #3a3a3a;
-} */
-
-
-  /* option{ 
-    word-wrap: break-word!important;
-      white-space: -moz-pre-wrap; 
-      white-space: pre-wrap;  
-      width:300px; 
-    } */
-    
 .containertodo{
-
   width: 40%;
-
     }
 
 .formContainer{
