@@ -648,7 +648,11 @@ width: 100%;
   .cityDetails{font-size: 4rem;}
   .Searchh3{font-size: 2.5rem;}
   .Searchh4{font-size: 1.5rem;}
-
+  .my-facebook-button-class{
+    width: 90%!important;
+    font-size: 1rem!important;
+  }
+  
 }
 
 
@@ -657,7 +661,7 @@ width: 100%;
   .responsiveCards{width: 100%;}
   .itinerariesCard{width: 90%;}
   .hashtags{flex-direction: column;}
- 
+  
 
 
 }
@@ -675,7 +679,7 @@ width: 100%;
   .responsiveCards{width: 100%;}
   .itinerariesCard{width: 80%;}
   .hashtags{flex-direction: column;}
-
+  
 
 }
 
@@ -698,7 +702,8 @@ width: 100%;
       background-position: 55%;
       background-size: cover;
     }
-
+    
+    
 
 
 }
@@ -727,6 +732,12 @@ width: 100%;
     }
     .countrycontainer{
       margin: 0rem!important;
+    }
+    .hola{
+      width: 90%!important;
+    }
+    .logincontainer{
+      width: 90%!important;
     }
 }
 
@@ -793,7 +804,7 @@ align-items: center!important;
     background-color: #ecf0f3;
     border-radius: 15px;
     box-shadow: 13px 13px 20px #247cac, -13px -13px 20px #247cac;
-
+    width: 40%;
 }
 
 
@@ -824,6 +835,12 @@ align-items: center!important;
 
 .labelLogin{
   margin-right: 1rem;
+  font-size: 150%;
+}
+
+.labelSignUp{
+  margin-right: 1rem;
+  font-size: 150%;
 }
 
 .country{
@@ -837,15 +854,27 @@ align-items: center!important;
 }
 
 
-
-.containertodo{
-  width: 40%;
-    }
-
 .formContainer{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 50%;
+}
+
+
+.logincontainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding-left: 10px;
+  margin-top: 1rem;
+    margin: 80px auto;
+    padding: 40px 30px 30px 30px;
+    background-color: #ecf0f3;
+    border-radius: 15px;
+    box-shadow: 13px 13px 20px #247cac, -13px -13px 20px #247cac;
+    width: 40%;
 }
