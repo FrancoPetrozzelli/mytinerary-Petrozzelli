@@ -57,6 +57,13 @@ const userActions ={
 
                 const user = await axios.post('http://localhost:4000/api/auth/login', { logedUser })
                 console.log(user.data)
+                Swal.fire({
+                    title:`${user.data.message}`,
+                    icon: 'error',
+                    toast:true,
+                    position:'center',
+                    background:'#fff'
+                })
 
                 if(user.data.success){
                 
@@ -66,7 +73,7 @@ const userActions ={
                 console.log(user.data.message)
 
                 Swal.fire({
-                    title:`Welcome back ${user.data.response.userData.firstName || logedUser.firstName}!`,
+                    title:`${user.data.message}`,
                     icon: 'success',
                     toast:true,
                     position:'center',
@@ -85,11 +92,8 @@ const userActions ={
                 //     })
                 
                 // }
-
-
             }catch(error){console.log(error)}
             
-        
         }
     },
 
