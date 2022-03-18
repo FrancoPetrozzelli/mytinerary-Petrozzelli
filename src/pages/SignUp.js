@@ -74,9 +74,9 @@ const handleSubmit = (event) => {
 
 return ( 
     
-        <div className="d-flex justify-content-center align-items-center containertodotodo">
-        <div className="hola">
-        <div className="chau">
+        <div className="d-flex justify-content-center align-items-center">
+        <div className="bigContainerSignUp">
+        <div className="mediumContainerSignUp">
             <div>
                 <FacebookSignUp/>
                 <h5 className="h5signup"> OR </h5>
@@ -108,7 +108,7 @@ return (
                 <input type="password" placeholder="Password" name="password" className="inputsignup" value={password} onChange={ e => setPassword(e.target.value) }/>
                 </div>
 
-                    <div className="mb-3 mt-3 asdasd">
+                    <div className="mb-3 mt-3">
                 {/* <label className="labelLogin">Url Image</label> */}
                 <BsFillImageFill className="labelSignUp"/>
                 <input type="url" placeholder="Url profile image" name="imageUrl" className="inputsignup" value={imageUrl} onChange={ e => setImageUrl(e.target.value) }/>
