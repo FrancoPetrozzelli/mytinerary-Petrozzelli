@@ -1,4 +1,5 @@
 import axios from "axios";
+import Swal from "sweetalert2"
 
 const userActions ={
     
@@ -6,7 +7,44 @@ const userActions ={
         return async (dispatch, getState) =>{
 
             const res = await axios.post('http://localhost:4000/api/auth/signup', { userData })
-            console.log(res.data)
+            dispatch({ type: "message", payload: res.data });
+                        console.log(res.data)
+        
+
+
+
+            try{
+                
+                console.log(userData)
+
+                if(res.data.success){
+
+                    dispatch({ type: "user", payload: res.data });
+                        console.log(res.data)
+                    Swal.fire({
+                        title:`Hello ${res.data.firstName || userData.firstName} remember to verify your account`,
+                        icon: 'success',
+                        toast:true,
+                        position:'center',
+                        background:'#fff'
+                    })
+            
+
+                }
+                // else{
+                //     Swal.fire({
+                //         title:`You are already registered`,
+                //         icon: 'error',
+                //         toast:true,
+                //         position:'center',
+                //         background:'#fff'
+                //     })
+                // }
+
+
+
+            }catch(error){console.log(error)}
+
 
         }
     },
@@ -14,13 +52,44 @@ const userActions ={
     logInUser: (logedUser) => {
 
         return async (dispatch, getState) => {
-            const user = await axios.post('http://localhost:4000/api/auth/login', { logedUser })
-            if(user.data.success){
+
+            try{
+
+                const user = await axios.post('http://localhost:4000/api/auth/login', { logedUser })
+                console.log(user.data)
+
+                if(user.data.success){
                 
-                localStorage.setItem('token',user.data.response.token)
-            dispatch({type: 'user', payload: user.data.response.userData});
-            console.log(user.data.message)
-            }else{console.log(user.data.message)}
+                    
+                    localStorage.setItem('token',user.data.response.token)
+                dispatch({type: 'user', payload: user.data.response.userData || user.data.response.logedUser});
+                console.log(user.data.message)
+
+                Swal.fire({
+                    title:`Welcome back ${user.data.response.userData.firstName || logedUser.firstName}!`,
+                    icon: 'success',
+                    toast:true,
+                    position:'center',
+                    background:'#fff'
+                })
+
+                }
+                // else{console.log(user.data.message)
+                
+                //     Swal.fire({
+                //         title:`You are already logged in`,
+                //         icon: 'success',
+                //         toast:true,
+                //         position:'center',
+                //         background:'#fff'
+                //     })
+                
+                // }
+
+
+            }catch(error){console.log(error)}
+            
+        
         }
     },
 

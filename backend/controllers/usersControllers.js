@@ -84,6 +84,7 @@ const usersController = {
     
                     res.json({
                         success: true, 
+                        imageUrl,
                         from:"signup", //RESPONDE CON EL TOKEN Y EL NUEVO USUARIO
                         message: "Te enviamos un email para validarlo, por favor verifica tu casilla para completar el signUp y agregarlo a tus metodos de SignIN "
                     }) 
@@ -93,6 +94,7 @@ const usersController = {
                     
                     res.json({ success: true,
                             from:"signup", 
+                            imageUrl,
                             message: "Agregamos "+from+ " a tus medios para realizar signIn" })
                 }// EN ESTE PUNTO SI EXITE RESPONDE FALSE
             }
@@ -119,6 +121,7 @@ const usersController = {
                     res.json({
                         success: true, 
                         from:"signup",
+                        imageUrl,
                         message: "Felicitaciones se ha creado tu usuario con " +from
                     }) // AGREGAMOS MENSAJE DE VERIFICACION
     
@@ -131,6 +134,8 @@ const usersController = {
                     res.json({
                         success: true, 
                         from:"signup",
+                        firstName, //agregue algo
+                        imageUrl, //agregue algo
                         message: "Te enviamos un email para validarlo, por favor verifica tu casilla para completar el signUp "
                     }) // AGREGAMOS MENSAJE DE VERIFICACION
                 }
