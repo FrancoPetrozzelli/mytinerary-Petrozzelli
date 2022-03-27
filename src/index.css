@@ -878,3 +878,46 @@ align-items: center!important;
     box-shadow: 13px 13px 20px #247cac, -13px -13px 20px #247cac;
     width: 40%;
 }
+
+
+.heart{
+  background-color: #212529!important;
+  cursor: pointer;
+  margin-right: 0.5rem;
+}
+
+.likeDislike{
+  display: flex;
+}
+
+.asdasdsad{
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+
+
+
+.activitiesContainer3{
+  display: flex;
+  flex-direction: row;
+}
+
+.activityImages{
+  width: 23vw;
+  border-radius: 10px;
+}
+
+.returnactivityContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  margin-left: 0.1rem;
+}
+
+.blanco{
+  color: white;
+}

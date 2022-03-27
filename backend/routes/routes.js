@@ -17,7 +17,7 @@ Router.route('/city/:id').delete(deleteCity).put(editCity).get(getCityById)
 
 const itinerariescontroller = require('../controllers/itinerariescontroller')
 
-const {getAllMyItineraries, addNewItinerary, deleteItinerary, editItinerary, getItineraryById, getItinerariesByCity} = itinerariescontroller
+const {getAllMyItineraries, addNewItinerary, deleteItinerary, editItinerary, getItineraryById, getItinerariesByCity, LikeDislike} = itinerariescontroller
 
 Router.route('/itineraries').get(getAllMyItineraries).post(addNewItinerary)
 
@@ -30,7 +30,7 @@ Router.route('/itineraries/:id').get(getItinerariesByCity)
 
 
 const userControllers = require('../controllers/usersControllers')
-const {signUpUsers, logInUser, verifyEmail, TokenVerify} = userControllers
+const {signUpUsers, logInUser, verifyEmail, TokenVerify,} = userControllers
 
 const passport = require('../config/passport')
 
@@ -45,5 +45,49 @@ Router.route('/verify/:uniqueString') //RECIBE EL LINK DE USUARIO
 
 Router.route('/auth/signInToken')
 .get(passport.authenticate('jwt',{ session:false }), TokenVerify)
+
+
+// like dislikes
+
+Router.route("/itineraries/like/:id")
+.put(passport.authenticate("jwt", {session: false}),LikeDislike)
+
+// comments
+
+//COMMENTS REQUIRES
+const commentsControllers = require('../controllers/commentsController')
+const {addComment, modifiComment,deleteComment}= commentsControllers
+Router.route('/itineraries/comment')
+.post(passport.authenticate('jwt',{ session: false }),addComment)
+
+Router.route('/itineraries/comment/:id')
+.post(passport.authenticate('jwt',{ session: false }),modifiComment)
+.delete(passport.authenticate('jwt',{ session: false }),deleteComment)
+
+// Activities
+
+
+const activitiesController = require('../controllers/activitiesController')
+const {getActivities, getActivityByID, editActivity, getActivitiesByItineraryId, addNewActivity, deleteActivity}= activitiesController
+
+Router.route("/activities")
+.get(getActivities).post(addNewActivity)
+
+Router.route("/activities/:id")
+.get(getActivityByID)
+.put(editActivity)
+.delete(deleteActivity)
+
+Router.route("/itineraryactivity/:id")
+.get(getActivitiesByItineraryId)
+
+
+
+
+
+
+
+
+
 
 module.exports = Router

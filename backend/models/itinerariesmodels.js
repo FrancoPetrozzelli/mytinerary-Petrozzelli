@@ -9,9 +9,13 @@ duration:{type:String, required:true},
 username:{type:String, required:true},
 userimage:{type:String, required:true},
 flag:{type:String, required:true},
-likes: { type: Number , default:0 },
+likes: { type: Array},
 hashtags: [{ type: String, required: true }],
-comments: [],
+comments: [{
+    comment:{type:String},
+    userID:{type:mongoose.Types.ObjectId, ref:"users"}
+
+}],
 description: {type:String, required:true}
 })
 

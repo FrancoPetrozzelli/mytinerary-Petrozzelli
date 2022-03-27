@@ -27,7 +27,6 @@ const sendEmail = async (email, uniqueString) => { //FUNCION ENCARGADA DE ENVIAR
         <h1 style="color:red">Presiona <a href=http://localhost:4000/api/verify/${uniqueString}>aqui</a> para confirma tu email. Gracias </h1>
         </div>
         `
-    
     };
     await transporter.sendMail(mailOptions, function (error, response) { //SE REALIZA EL ENVIO
         if (error) { console.log(error) }
@@ -246,5 +245,6 @@ const usersController = {
         }
     }
 
+    
 }
 module.exports = usersController

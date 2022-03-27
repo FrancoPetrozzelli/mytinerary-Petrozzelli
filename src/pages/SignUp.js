@@ -14,12 +14,12 @@ import Swal from "sweetalert2"
 
 function SignUp(props){
 
-    const [firstName, setFirstName] = useState()
-    const [lastName, setLastName] = useState()
-    const [email, setEmail] = useState()
-    const [password, setPassword] = useState()
-    const [imageUrl, setImageUrl] = useState()
-    const [country, setCountry] = useState()
+    const [firstName, setFirstName] = useState('')
+    const [lastName, setLastName] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [imageUrl, setImageUrl] = useState('')
+    const [country, setCountry] = useState('')
 
 
 
@@ -40,12 +40,12 @@ const handleSubmit = (event) => {
     }else{
 
         const userData={
-            firstName:event.target[0].value,
-            lastName:event.target[1].value,
-            email:event.target[2].value,
-            password:event.target[3].value,
-            imageUrl:event.target[4].value,
-            country:event.target[5].value,
+            firstName,
+            lastName,
+            email,
+            password,
+            imageUrl,
+            country,
             from:"form-signup"
         }
         props.signUpUser(userData)
