@@ -62,6 +62,7 @@ const itinierariescontroller = {
     
             try{
                 itinerary = await allMyItineraries.findOne({_id:id})
+                .populate("comments.userID", {firstName:1, lastName:1, imageUrl:1})
             }catch(error){
                 console.log(error)
             }
@@ -71,6 +72,7 @@ const itinierariescontroller = {
 
         getItinerariesByCity: (req, res) => {
             allMyItineraries.find({ idcity: req.params.id }).populate("idcity")
+            .populate("comments.userID", {firstName:1, lastName:1, imageUrl:1})
             .then((itinerariesByCityId) =>
             res.json({ success: true, response: itinerariesByCityId }))
             .catch((err) => res.json({ success: false, response: err }))

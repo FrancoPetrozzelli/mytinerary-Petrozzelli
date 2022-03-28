@@ -2,7 +2,7 @@ import Home from './pages/Home';
 import Cities from './pages/Cities';
 import NavbarMain from './components/NavBar'
 import FooterMain from './components/Footer'
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
 import Error404 from './components/Error404'
 import React, {useEffect} from 'react'
 import CityDetails from './components/CityDetails'
@@ -33,8 +33,8 @@ function App(props) {
       <Route path='/cities' element={<Cities/>}/>
       <Route path ="/detalle/:id" element={<CityDetails/>}/>
       <Route path='*' element={<Error404/>}/>
-      {!props.user &&<Route path="/login" element={<LogIn/>} />}
-			{!props.user &&<Route path="/signup" element={<SignUp />} />}
+      <Route path="/login" element={localStorage.getItem('token') ? (<Navigate replace to ="/"/>) : <LogIn/>}/>
+			<Route path="/signup" element={localStorage.getItem('token') ? (<Navigate replace to ="/"/>) : <SignUp />}/>
 
     </Routes>
 

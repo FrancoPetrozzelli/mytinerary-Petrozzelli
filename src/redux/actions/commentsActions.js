@@ -54,7 +54,7 @@ const commentsActions = {
 
         const token = localStorage.getItem('token')
         return async (dispatch, getState) => {
-            const res = await axios.delete(`http://localhost:4000/api/itineraries/comment/${id}`, {}, {
+            const res = await axios.delete(`http://localhost:4000/api/itineraries/comment/${id}`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }

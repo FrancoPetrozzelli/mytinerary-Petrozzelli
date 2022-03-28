@@ -918,6 +918,38 @@ align-items: center!important;
   margin-left: 0.1rem;
 }
 
-.blanco{
+.pWhite{
   color: white;
 }
+
+.commentsContainer{
+  display: flex;
+  background-color: grey;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 50px;
+  margin-bottom: 1rem;
+}
+
+.userphoto{
+  width: 5rem;
+  border-radius: 50px;
+  margin-top: 1rem;
+}
+
+.firstNameLastName{
+  display: flex;
+}
+
+.pFirstNameLastName{
+  margin-left: 0.5rem;
+  margin-right: 1rem;
+}
+
+.textareacontainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
