@@ -193,8 +193,8 @@ const Itineraries = (props) => {
                 <div>
                     <div>
                     <Activities id={props.itinerary._id}/> 
-                    <MakeComments id={props.itinerary._id} itinerariesByCity={props.itinerariesByCity}/>
                     {props.itinerary.comments.map(comment => <Comments id={props.itinerary._id} comment={comment} itinerariesByCity={props.itinerariesByCity}/>)}
+                    <MakeComments id={props.itinerary._id} itinerariesByCity={props.itinerariesByCity}/>
                     
                         <div className="d-flex justify-content-center">
                         <Button onClick={buttonFunction} className=" btn btn-details btn-warning btn-details-warning btnCityDetails">

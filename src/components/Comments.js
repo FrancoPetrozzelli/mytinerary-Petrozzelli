@@ -50,15 +50,16 @@ const Comments = (props) =>  {
         <div className='firstNameLastName'>
         <p className='pWhite pFirstNameLastName'>
             {props.comment.userID.firstName} 
-            
             </p>
 
+            
+            
             <p  className='pWhite'>
             {props.comment.userID.lastName}
-            
             </p>
+
             </div>
-            {console.log(props.comment.userID.lastName) }
+            {console.log(props.comment.userID.lastName)}
             <p  className='pWhite'>
             {props.comment.comment}
             </p>
@@ -77,12 +78,13 @@ const Comments = (props) =>  {
             </div>
         </div>
         :
-        <div>
+        <div className='commentsContainer'>
             <img src={props.comment.userID.imageUrl} alt="photo" className='userphoto'/> 
             <div className='firstNameLastName'>
             <p  className='pWhite'>
             {props.comment.userID.firstName} 
             </p>
+        
             <p  className='pWhite'>
             {props.comment.userID.lastName}
             </p>

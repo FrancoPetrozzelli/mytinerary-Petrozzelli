@@ -953,3 +953,36 @@ align-items: center!important;
   align-items: center;
 }
 
+.divComments{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  background-color: #0DCAF0;
+  border-radius: 20px;
+
+}
+
+.divMakeComments{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.divMakeCommentsSon{
+  display: flex;
+}
+
+.btnComment{
+  margin-left: 0.5rem;
+}
+
+.signupComment{
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}

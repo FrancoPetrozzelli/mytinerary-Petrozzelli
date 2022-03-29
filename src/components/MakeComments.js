@@ -27,16 +27,16 @@ const MakeComments = (props) => {
     return ( 
         <>
                 {props.user ?
-                    <div>
-                        <div>
-                            <textarea ref={input} value={text} />
-                            <button onClick={() => chargeComment()} className="btn btn-primary">Comment</button>
+                    <div className='divMakeComments'>
+                        <div className='divMakeCommentsSon'>
+                            <textarea ref={input} value={text} placeholder='Comment here'/>
+                            <button onClick={() => chargeComment()} className="btn btn-primary btnComment">Comment</button>
                     </div>
                     </div> 
                 
                     :
 
-                    <div><span>sign up to comment</span></div>
+                    <div className='pWhite signupComment'><span>SIGN UP TO COMMENT</span></div>
                 }
         </>
     );
