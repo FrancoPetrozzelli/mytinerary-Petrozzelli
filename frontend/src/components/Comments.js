@@ -81,7 +81,7 @@ const Comments = (props) =>  {
         <div className='commentsContainer'>
             <img src={props.comment.userID.imageUrl} alt="photo" className='userphoto'/> 
             <div className='firstNameLastName'>
-            <p  className='pWhite'>
+            <p  className='pWhite pFirstNameLastName'>
             {props.comment.userID.firstName} 
             </p>
         

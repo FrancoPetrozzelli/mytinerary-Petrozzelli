@@ -904,7 +904,7 @@ align-items: center!important;
 }
 
 .activityImages{
-  width: 23vw;
+  width: 24vw;
   border-radius: 10px;
 }
 
@@ -944,7 +944,7 @@ align-items: center!important;
 
 .pFirstNameLastName{
   margin-left: 0.5rem;
-  margin-right: 1rem;
+  margin-right: 0.5rem;
 }
 
 .textareacontainer{
@@ -953,16 +953,7 @@ align-items: center!important;
   align-items: center;
 }
 
-.divComments{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin-bottom: 1rem;
-  background-color: #0DCAF0;
-  border-radius: 20px;
 
-}
 
 .divMakeComments{
   display: flex;
