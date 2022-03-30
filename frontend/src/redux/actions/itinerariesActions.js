@@ -4,7 +4,7 @@ const itinerariesActions = { //es un objeto q tiene funcones
 
     allItineraries: () =>{
         return async(dispatch, getState) => {
-            const response = await axios.get('http://localhost:4000/api/itineraries')
+            const response = await axios.get('https://mytinerary-petrozzelli.herokuapp.com/api/itineraries')
             dispatch({type:'allMyItinerariesReducer', payload:response.data.response})
             //console.log(response.data.response)
 
@@ -15,7 +15,7 @@ const itinerariesActions = { //es un objeto q tiene funcones
 
     itinerariesByCity: (cityid) => {
         return async (dispatch, getState) => {
-            const response = await axios.get(`http://localhost:4000/api/itineraries/${cityid}`)
+            const response = await axios.get(`https://mytinerary-petrozzelli.herokuapp.com/api/itineraries/${cityid}`)
             //console.log(response)
             dispatch({type:'itinerariesByCityReducer', payload:response.data.response})
         }
@@ -26,7 +26,7 @@ const itinerariesActions = { //es un objeto q tiene funcones
         return async () => {
         const token = localStorage.getItem('token')
             try {
-                let response = await axios.put(`http://localhost:4000/api/itineraries/like/${cityid}`, {},
+                let response = await axios.put(`https://mytinerary-petrozzelli.herokuapp.com/api/itineraries/like/${cityid}`, {},
                 {headers: {
                     Authorization: "Bearer "+token
                     }
@@ -44,7 +44,7 @@ const itinerariesActions = { //es un objeto q tiene funcones
 
         return async () => {
             try { 
-                const response = await axios.get(`http://localhost:4000/api/itineraryactivity/${id}`)
+                const response = await axios.get(`https://mytinerary-petrozzelli.herokuapp.com/api/itineraryactivity/${id}`)
                 const data = response.data.response
                 return {success: true, response: data}
             } catch (error){

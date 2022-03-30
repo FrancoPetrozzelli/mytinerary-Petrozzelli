@@ -6,7 +6,7 @@ const userActions ={
     signUpUser: (userData) => {
         return async (dispatch, getState) =>{
 
-            const res = await axios.post('http://localhost:4000/api/auth/signup', { userData })
+            const res = await axios.post('https://mytinerary-petrozzelli.herokuapp.com/api/auth/signup', { userData })
             dispatch({ type: "message", payload: res.data });
                         console.log(res.data)
         
@@ -55,7 +55,7 @@ const userActions ={
 
             try{
 
-                const user = await axios.post('http://localhost:4000/api/auth/login', { logedUser })
+                const user = await axios.post('https://mytinerary-petrozzelli.herokuapp.com/api/auth/login', { logedUser })
                 console.log(user.data)
                 Swal.fire({
                     title:`${user.data.message}`,
@@ -99,7 +99,7 @@ const userActions ={
 
     logOutUser :(closeuser)=>{
         return async (dispatch, getState) => {
-        //const user = axios.post('http://localhost:4000/api/auth/signout',{closeuser})
+        //const user = axios.post('https://mytinerary-petrozzelli.herokuapp.com/api/auth/signout',{closeuser})
             localStorage.removeItem('token')
         dispatch({type: 'user', payload: null});
     } 
@@ -109,7 +109,7 @@ TokenVerify: (token) => {
 
     return async (dispatch, getState) => {
         console.log(token)
-        const user = await axios.get('http://localhost:4000/api/auth/signInToken', {
+        const user = await axios.get('https://mytinerary-petrozzelli.herokuapp.com/api/auth/signInToken', {
             headers: {
                 'Authorization': 'Bearer ' + token
             }

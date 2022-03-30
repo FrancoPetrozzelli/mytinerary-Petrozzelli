@@ -24,7 +24,7 @@ const sendEmail = async (email, uniqueString) => { //FUNCION ENCARGADA DE ENVIAR
         subject: "Verificacion de email usuario ", //EL ASUNTO Y EN HTML EL TEMPLATE PARA EL CUERPO DE EMAIL Y EL LINK DE VERIFICACION
         html: `
         <div >
-        <h1 style="color:red">Presiona <a href=http://localhost:4000/api/verify/${uniqueString}>aqui</a> para confirma tu email. Gracias </h1>
+        <h1 style="color:red">Presiona <a href=https://mytinerary-petrozzelli.herokuapp.com/api/verify/${uniqueString}>aqui</a> para confirma tu email. Gracias </h1>
         </div>
         `
     };
@@ -49,7 +49,7 @@ const usersController = {
         if (user) {
             user.verifiedEmail = true //COLOCA EL CAMPO emailVerified en true
             await user.save()
-            res.redirect("http://localhost:3000/login") //REDIRECCIONA AL USUARIO A UNA RUTA DEFINIDA
+            res.redirect("https://mytinerary-petrozzelli.herokuapp.com/login") //REDIRECCIONA AL USUARIO A UNA RUTA DEFINIDA
             //return  res.json({success:true, response:"Su email se ha verificado correctamente"})
         }
         else { res.json({ success: false, response: "Su email no se ha verificado" }) }

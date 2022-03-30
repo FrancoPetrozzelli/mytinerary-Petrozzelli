@@ -4,7 +4,7 @@ const citiesActions = { //es un objeto q tiene funcones
 
     allCities: () =>{
         return async(dispatch, getState) => {
-            const response = await axios.get('http://localhost:4000/api/allcities')
+            const response = await axios.get('https://mytinerary-petrozzelli.herokuapp.com/api/allcities')
             //.then(response => console.log(response.data.response))
             dispatch({type:'allMyCitiesReducer', payload:response.data.response})
         } 
@@ -19,7 +19,7 @@ const citiesActions = { //es un objeto q tiene funcones
 
     cityById: (id) =>{
         return async(dispatch, getState) => {
-            const response = await axios.get(`http://localhost:4000/api/city/${id}`)
+            const response = await axios.get(`https://mytinerary-petrozzelli.herokuapp.com/api/city/${id}`)
             //.then(response => ))
             //console.log(response.data.response)
             dispatch({type:'cityReducer', payload:response.data.response})
