@@ -1,3 +1,4 @@
+import { ConstructionOutlined } from '@mui/icons-material';
 import axios from 'axios';
 
 const commentsActions = {
@@ -51,10 +52,10 @@ const commentsActions = {
         }
     },
     deleteComment: (id) => {
-
+        
         const token = localStorage.getItem('token')
         return async (dispatch, getState) => {
-            const res = await axios.delete(`https://mytinerary-petrozzelli.herokuapp.com/itineraries/comment/${id}`, {
+            const res = await axios.delete(`https://mytinerary-petrozzelli.herokuapp.com/api/itineraries/comment/${id}`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
