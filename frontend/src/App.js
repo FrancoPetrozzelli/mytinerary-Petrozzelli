@@ -35,8 +35,8 @@ function App(props) {
       <Route path='*' element={<Error404/>}/>
       {/* <Route path="/login" element={localStorage.getItem('token') ? (<Navigate replace to ="/"/>) : <LogIn/>}/>
 			<Route path="/signup" element={localStorage.getItem('token') ? (<Navigate replace to ="/"/>) : <SignUp />}/> */}
-      {!props.user &&<Route path="/login" element={<LogIn/>} />}
-			{!props.user &&<Route path="/signup" element={<SignUp />} />}
+      {!props.user && <Route path="/login" element={<LogIn/>} />}
+			{!props.user && <Route path="/signup" element={<SignUp />} />}
 
     </Routes>
 
